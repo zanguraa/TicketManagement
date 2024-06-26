@@ -1,4 +1,4 @@
-﻿namespace Ticket.TicketManagement.Application.Features.Events
+﻿namespace Ticket.TicketManagement.Application.Features.Events.Queries.GetEventList
 {
     public class EventListVm
     {
