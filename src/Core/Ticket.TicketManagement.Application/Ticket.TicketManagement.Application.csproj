@@ -16,7 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Features\Categories\Commands\" />
+    <Folder Include="Features\Categories\Commands\DeleteEvent\" />
     <Folder Include="Features\Events\Commands\CreateEvent\" />
   </ItemGroup>
 
