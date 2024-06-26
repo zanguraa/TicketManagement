@@ -1,4 +1,6 @@
-﻿namespace Ticket.TicketManagement.Application.Contracts.Persistence
+﻿using Ticket.TicketManagement.Domain.Entities;
+
+namespace Ticket.TicketManagement.Application.Contracts.Persistence
 {
     public interface IAsyncRepository<T> where T : class
     {
@@ -7,5 +9,6 @@
         Task<T> AddAsync(T entity);
         Task<T> UpdateAsync(T entity);
         Task<T> DeleteAsync(Guid id);
+        Task DeleteAsync(Event eventToDelete);
     }
 }
