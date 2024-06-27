@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Ticket.TicketManagement.Application.Contracts.Persistence;
 
-namespace Ticket.TicketManagement.Application.Features.Categories.Commands.CreateEvent
+namespace Ticket.TicketManagement.Application.Features.Events.Commands.CreateEvent
 {
     public class CreateEventCommandValidator : AbstractValidator<CreateEventCommand>
     {
@@ -40,7 +40,7 @@ namespace Ticket.TicketManagement.Application.Features.Categories.Commands.Creat
 
         private async Task<bool> EventNameAndDateUnique(CreateEventCommand e, CancellationToken token)
         {
-            return !(await _eventRepository.IsEventNameAndDateUnique(e.Name, e.Date));
+            return !await _eventRepository.IsEventNameAndDateUnique(e.Name, e.Date);
         }
     }
 }

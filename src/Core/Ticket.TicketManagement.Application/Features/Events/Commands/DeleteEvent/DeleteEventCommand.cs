@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Ticket.TicketManagement.Application.Features.Categories.Commands.DeleteEvent
+namespace Ticket.TicketManagement.Application.Features.Events.Commands.DeleteEvent
 {
     public class DeleteEventCommand : IRequest
     {

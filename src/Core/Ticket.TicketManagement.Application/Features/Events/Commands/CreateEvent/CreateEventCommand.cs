@@ -5,17 +5,22 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Ticket.TicketManagement.Application.Features.Categories.Commands.UpdateEvent
+namespace Ticket.TicketManagement.Application.Features.Events.Commands.CreateEvent
 {
-    public class UpdateEventCommand : IRequest
+    public class CreateEventCommand : IRequest<Guid>
     {
-        public Guid EventId { get; set; }
-        public string Name { get; set; } = string.Empty;
+        public string Name { get; set; }
         public int Price { get; set; }
         public string Artist { get; set; }
         public DateTime Date { get; set; }
         public string Description { get; set; }
         public string ImageUrl { get; set; }
         public Guid CategoryId { get; set; }
+
+        public override string ToString()
+        {
+            return $"Event name: {Name}; Price: {Price}; By: {Artist}; On: {Date.ToShortDateString()}; Description: {Description}";
+        }
+
     }
 }

@@ -3,7 +3,7 @@ using MediatR;
 using Ticket.TicketManagement.Application.Contracts.Persistence;
 using Ticket.TicketManagement.Domain.Entities;
 
-namespace Ticket.TicketManagement.Application.Features.Categories.Commands.DeleteEvent
+namespace Ticket.TicketManagement.Application.Features.Events.Commands.DeleteEvent
 {
     public class DeleteEventCommandHandler : IRequestHandler<DeleteEventCommand>
     {

@@ -1,9 +1,10 @@
 ﻿using AutoMapper;
 using MediatR;
 using Ticket.TicketManagement.Application.Contracts.Persistence;
+using Ticket.TicketManagement.Application.Features.Events.Commands.CreateEvent;
 using Ticket.TicketManagement.Domain.Entities;
 
-namespace Ticket.TicketManagement.Application.Features.Categories.Commands.CreateEvent
+namespace Ticket.TicketManagement.Application.Features.Events.Commands.CreateEvent
 {
     public class CreateEventCommandHandler : IRequestHandler<CreateEventCommand, Guid>
     {
