@@ -7,8 +7,7 @@ namespace Ticket.TicketManagement.Application.Contracts.Persistence
         Task<T> GetByIdAsync(Guid id);
         Task<IReadOnlyList<T>> ListAllAsync();
         Task<T> AddAsync(T entity);
-        Task<T> UpdateAsync(T entity);
-        Task<T> DeleteAsync(Guid id);
-        Task DeleteAsync(Event eventToDelete);
+        Task UpdateAsync(T entity);
+        Task DeleteAsync(T entity);
     }
 }
