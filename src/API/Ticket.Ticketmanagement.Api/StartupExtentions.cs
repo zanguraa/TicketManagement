@@ -24,6 +24,8 @@ namespace Ticket.Ticketmanagement.Api
                 .AllowAnyHeader()
                 .AllowCredentials()));
 
+            builder.Services.AddSwaggerGen();
+
             return builder.Build();
 
         }
@@ -31,6 +33,11 @@ namespace Ticket.Ticketmanagement.Api
         public static WebApplication ConfigurePipeline(this WebApplication app)
         {
             app.UseCors("open");
+            if (app.Environment.IsDevelopment())
+            {
+                app.UseSwagger();
+                app.UseSwaggerUI();
+            }
             app.UseHttpsRedirection();
             app.MapControllers();
 

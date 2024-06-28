@@ -1,5 +1,6 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using Ticket.Ticketmanagement.Api.Utility;
 using Ticket.TicketManagement.Application.Features.Events.Commands.CreateEvent;
 using Ticket.TicketManagement.Application.Features.Events.Commands.DeleteEvent;
 using Ticket.TicketManagement.Application.Features.Events.Commands.UpdateEvent;
@@ -61,6 +62,7 @@ namespace Ticket.Ticketmanagement.Api.Controllers
         }
 
         [HttpGet("export", Name = "ExportEvents")]
+        [FileResultContentType("text/csv")]
         public async Task<FileResult> ExportEvents()
         {
             var fileDto = await _mediator.Send(new GetEventsExportQuery());
