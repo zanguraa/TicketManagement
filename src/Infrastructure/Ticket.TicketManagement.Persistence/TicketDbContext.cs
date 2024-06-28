@@ -13,6 +13,7 @@ namespace Ticket.TicketManagement.Persistence
         public TicketDbContext(DbContextOptions<TicketDbContext> options)
            : base(options)
         {
+
         }
 
         public TicketDbContext(DbContextOptions<TicketDbContext> options, ILoggedInUserService loggedInUserService)

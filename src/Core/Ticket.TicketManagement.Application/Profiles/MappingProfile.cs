@@ -17,7 +17,7 @@ namespace Ticket.TicketManagement.Application.Profiles
             CreateMap<Event, EventDetailVm>().ReverseMap();
             CreateMap<Event, CategoryDto>().ReverseMap();
 
-            CreateMap<Event, CategoryListVm>().ReverseMap();
+            CreateMap<Category, CategoryListVm>().ReverseMap();
             CreateMap<Category, CategoryEventListVm>().ReverseMap();
 
             CreateMap<Event, CreateEventCommand>().ReverseMap();

@@ -17,7 +17,7 @@ namespace Ticket.Ticketmanagement.Api
             builder.Services.AddCors(
                 options => options.AddPolicy
                 ("open",
-                policy => policy.WithOrigins([builder.Configuration["ApiUrl"] ?? "https://loclhost:7020",
+                policy => policy.WithOrigins([builder.Configuration["ApiUrl"] ?? "https://loclahost:7020",
                 builder.Configuration["BlazorUrl"] ?? "https://localhost:7080"])
                 .AllowAnyMethod()
                 .SetIsOriginAllowed(pol => true)
