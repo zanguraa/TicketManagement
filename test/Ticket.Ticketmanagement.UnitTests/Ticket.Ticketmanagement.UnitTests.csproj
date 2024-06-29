@@ -28,7 +28,6 @@
 
   <ItemGroup>
     <Folder Include="Categories\Commands\" />
-    <Folder Include="Mocks\" />
   </ItemGroup>
 
 </Project>

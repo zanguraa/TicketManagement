@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Moq;
 using Shouldly;
+using Ticket.Ticketmanagement.UnitTests.Mocks;
 using Ticket.TicketManagement.Application.Contracts.Persistence;
 using Ticket.TicketManagement.Application.Features.Categories.Queries.GetCategoriesList;
 using Ticket.TicketManagement.Application.Features.Categories.Queries.GetCategoriesListWithEvent;
@@ -16,7 +17,7 @@ namespace Ticket.Ticketmanagement.UnitTests.Categories.Queries
 
         public GetCategoriesListQueryHandlerTests()
         {
-            _mockCategoryRepository = new Mock<IAsyncRepository<Category>>();
+            _mockCategoryRepository = RepositoryMocks.GetCategoryRepository();
             var configurationProvider = new MapperConfiguration(cfg =>
             {
                 cfg.AddProfile<MappingProfile>();
