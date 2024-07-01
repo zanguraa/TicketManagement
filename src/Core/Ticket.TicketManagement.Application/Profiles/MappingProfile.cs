@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Ticket.TicketManagement.Application.Features.Categories.Commands.CreateCategory;
 using Ticket.TicketManagement.Application.Features.Categories.Queries.GetCategoriesList;
 using Ticket.TicketManagement.Application.Features.Categories.Queries.GetCategoriesListWithEvent;
 using Ticket.TicketManagement.Application.Features.Events.Commands.CreateEvent;
@@ -19,6 +20,8 @@ namespace Ticket.TicketManagement.Application.Profiles
 
             CreateMap<Category, CategoryListVm>().ReverseMap();
             CreateMap<Category, CategoryEventListVm>().ReverseMap();
+            CreateMap<Category, CreateCategoryDto>().ReverseMap();
+
 
             CreateMap<Event, CreateEventCommand>().ReverseMap();
             CreateMap<Event, UpdateEventCommand>().ReverseMap();
