@@ -1,4 +1,6 @@
-﻿using Ticket.TicketManagement.Application;
+﻿using Ticket.Ticketmanagement.Api.Services;
+using Ticket.TicketManagement.Application;
+using Ticket.TicketManagement.Application.Contracts;
 using Ticket.TicketManagement.Infrastructure;
 using Ticket.TicketManagement.Persistence;
 
@@ -11,6 +13,9 @@ namespace Ticket.Ticketmanagement.Api
             builder.Services.AddApplicationServices();
             builder.Services.AddInfrastructureServices(builder.Configuration);
             builder.Services.AddPersistenceServices(builder.Configuration);
+
+            builder.Services.AddScoped<ILoggedInUserService, LoggedInUserService>();
+            builder.Services.AddHttpContextAccessor();
 
             builder.Services.AddControllers();
 

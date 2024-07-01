@@ -1,6 +1,8 @@
-﻿namespace Ticket.TicketManagement.Domain.Entities
+﻿using Ticket.TicketManagement.Domain.Common;
+
+namespace Ticket.TicketManagement.Domain.Entities
 {
-    public class Event
+    public class Event : AuditableEntity
     {
         public Guid EventId { get; set; }
         public string Name { get; set; } = string.Empty;
