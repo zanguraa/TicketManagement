@@ -1,8 +1,8 @@
 ﻿using AutoMapper;
 using MediatR;
+using Microsoft.Extensions.Logging;
 using Ticket.TicketManagement.Application.Contracts.Infrastructure;
 using Ticket.TicketManagement.Application.Contracts.Persistence;
-using Ticket.TicketManagement.Application.Features.Events.Commands.CreateEvent;
 using Ticket.TicketManagement.Application.Models.Mail;
 using Ticket.TicketManagement.Domain.Entities;
 
@@ -13,12 +13,14 @@ namespace Ticket.TicketManagement.Application.Features.Events.Commands.CreateEve
         private readonly IEventRepository _eventRepository;
         private readonly IMapper _mapper;
         private readonly IEmailService _emailService;
+        private readonly ILogger<CreateEventCommandHandler> _logger;
 
-        public CreateEventCommandHandler(IEventRepository eventRepository, IMapper mapper, IEmailService emailService)
+        public CreateEventCommandHandler(IEventRepository eventRepository, IMapper mapper, IEmailService emailService, ILogger<CreateEventCommandHandler> logger)
         {
             _eventRepository = eventRepository;
             _mapper = mapper;
             _emailService = emailService;
+            _logger = logger;
 
         }
 
@@ -44,7 +46,7 @@ namespace Ticket.TicketManagement.Application.Features.Events.Commands.CreateEve
             }
             catch (Exception ex)
             {
-
+                _logger.LogError($"Mailing about event {@event.EventId} failed due to an error with the mail service: {ex.Message}");
             }
 
             return @event.EventId;

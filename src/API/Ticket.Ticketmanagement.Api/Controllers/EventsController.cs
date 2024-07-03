@@ -10,6 +10,8 @@ using Ticket.TicketManagement.Application.Features.Events.Queries.GetEventsExpor
 
 namespace Ticket.Ticketmanagement.Api.Controllers
 {
+    [Route("api/[controller]")]
+    [ApiController]
     public class EventsController : ControllerBase
     {
         private readonly IMediator _mediator;
@@ -19,7 +21,7 @@ namespace Ticket.Ticketmanagement.Api.Controllers
             _mediator = mediator;
         }
 
-        [HttpGet(Name = "GetAllEvents")]
+        [HttpGet("allevents", Name = "GetAllEvents")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         public async Task<ActionResult<List<EventListVm>>> GetAllEvents()
         {
@@ -27,21 +29,21 @@ namespace Ticket.Ticketmanagement.Api.Controllers
             return Ok(result);
         }
 
-        [HttpGet("{id}", Name = "GetEventById")]
+        [HttpGet("getby{id}", Name = "GetEventById")]
         public async Task<ActionResult<EventListVm>> GetEventById(Guid id)
         {
             var getEventDetailQuery = new GetEventDetailQuery() { Id = id };
             return Ok(await _mediator.Send(getEventDetailQuery));
         }
 
-        [HttpPost(Name = "AddEvent")]
+        [HttpPost("createevent", Name = "AddEvent")]
         public async Task<ActionResult<Guid>> Create([FromBody] CreateEventCommand createEventCommand)
         {
             var id = await _mediator.Send(createEventCommand);
             return Ok(id);
         }
 
-        [HttpPut(Name = "UpdateEvent")]
+        [HttpPut("updateevent", Name = "UpdateEvent")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<ActionResult> Update([FromBody] UpdateEventCommand updateEventCommand)
@@ -50,7 +52,7 @@ namespace Ticket.Ticketmanagement.Api.Controllers
             return NoContent();
         }
 
-        [HttpDelete("{id}", Name = "DeleteEvent")]
+        [HttpDelete("deleteevent{id}", Name = "DeleteEvent")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesDefaultResponseType]

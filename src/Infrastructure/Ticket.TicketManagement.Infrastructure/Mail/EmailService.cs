@@ -1,11 +1,7 @@
-﻿using Microsoft.Extensions.Options;
+﻿using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Options;
 using SendGrid;
 using SendGrid.Helpers.Mail;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Ticket.TicketManagement.Application.Contracts.Infrastructure;
 using Ticket.TicketManagement.Application.Models.Mail;
 
@@ -14,6 +10,7 @@ namespace Ticket.TicketManagement.Infrastructure.Mail
     public class EmailService : IEmailService
     {
         public EmailSettings _emailSettings { get; }
+        public ILogger<EmailService> _logger { get; }
 
         public EmailService(IOptions<EmailSettings> mailSettings)
         {
@@ -37,8 +34,12 @@ namespace Ticket.TicketManagement.Infrastructure.Mail
             var sendGridMessage = MailHelper.CreateSingleEmail(from, to, subject, emailBody, emailBody);
             var response = await client.SendEmailAsync(sendGridMessage);
 
+            _logger.LogInformation("Email sent");
+
             if (response.StatusCode == System.Net.HttpStatusCode.Accepted || response.StatusCode == System.Net.HttpStatusCode.OK)
                 return true;
+
+            _logger.LogError("Email sending failed");
 
             return false;
         }

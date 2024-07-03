@@ -28,9 +28,7 @@ namespace Ticket.TicketManagement.Application.Features.Events.Commands.CreateEve
                 .NotNull()
                 .GreaterThan(DateTime.Now);
 
-            RuleFor(e => e)
-                .MustAsync(EventNameAndDateUnique)
-                .WithMessage("An event with the same name and date already exists.");
+
 
 
             RuleFor(p => p.Price)

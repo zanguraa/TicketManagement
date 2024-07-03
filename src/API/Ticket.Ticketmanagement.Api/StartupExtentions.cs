@@ -1,4 +1,5 @@
-﻿using Ticket.Ticketmanagement.Api.Services;
+﻿using Ticket.Ticketmanagement.Api.Middleware;
+using Ticket.Ticketmanagement.Api.Services;
 using Ticket.TicketManagement.Application;
 using Ticket.TicketManagement.Application.Contracts;
 using Ticket.TicketManagement.Infrastructure;
@@ -43,6 +44,9 @@ namespace Ticket.Ticketmanagement.Api
                 app.UseSwagger();
                 app.UseSwaggerUI();
             }
+
+            app.UseCustomExceptionsHandler();
+
             app.UseHttpsRedirection();
             app.MapControllers();
 
