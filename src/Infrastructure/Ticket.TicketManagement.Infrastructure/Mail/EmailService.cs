@@ -12,9 +12,10 @@ namespace Ticket.TicketManagement.Infrastructure.Mail
         public EmailSettings _emailSettings { get; }
         public ILogger<EmailService> _logger { get; }
 
-        public EmailService(IOptions<EmailSettings> mailSettings)
+        public EmailService(IOptions<EmailSettings> mailSettings, ILogger<EmailService> logger)
         {
             _emailSettings = mailSettings.Value;
+            _logger = logger;
         }
 
         public async Task<bool> SendEmailAsync(Email email)
@@ -34,10 +35,11 @@ namespace Ticket.TicketManagement.Infrastructure.Mail
             var sendGridMessage = MailHelper.CreateSingleEmail(from, to, subject, emailBody, emailBody);
             var response = await client.SendEmailAsync(sendGridMessage);
 
-            _logger.LogInformation("Email sent");
-
             if (response.StatusCode == System.Net.HttpStatusCode.Accepted || response.StatusCode == System.Net.HttpStatusCode.OK)
+            {
+                _logger.LogInformation("Email sent");
                 return true;
+            }
 
             _logger.LogError("Email sending failed");
 
