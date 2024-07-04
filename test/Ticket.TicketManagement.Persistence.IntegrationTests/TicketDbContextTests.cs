@@ -1,6 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Moq;
-using Shouldly;
 using Ticket.TicketManagement.Application.Contracts;
 using Ticket.TicketManagement.Domain.Entities;
 
@@ -33,7 +32,7 @@ namespace Ticket.TicketManagement.Persistence.IntegrationTests
             _ticketDbContext.Events.Add(ev);
             await _ticketDbContext.SaveChangesAsync();
 
-           // ev.CreatedBy.ShouldBe(_loggedInUserId);
+            // ev.CreatedBy.ShouldBe(_loggedInUserId);
         }
     }
 }

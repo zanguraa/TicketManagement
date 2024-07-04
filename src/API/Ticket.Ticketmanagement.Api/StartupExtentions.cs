@@ -50,7 +50,7 @@ namespace Ticket.Ticketmanagement.Api
             }
 
 
-            
+
             app.UseRouting();
             app.UseAuthorization();
             app.UseEndpoints(endpoints =>

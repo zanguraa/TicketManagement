@@ -4,7 +4,6 @@ using Shouldly;
 using Ticket.Ticketmanagement.UnitTests.Mocks;
 using Ticket.TicketManagement.Application.Contracts.Persistence;
 using Ticket.TicketManagement.Application.Features.Categories.Commands;
-using Ticket.TicketManagement.Application.Features.Categories.Queries.GetCategoriesList;
 using Ticket.TicketManagement.Application.Profiles;
 using Ticket.TicketManagement.Domain.Entities;
 
@@ -30,7 +29,7 @@ namespace Ticket.Ticketmanagement.UnitTests.Categories.Commands
         {
             var handler = new CreateCategoryCommandHandler(_mapper, _mockCategoryRepository.Object);
 
-            await handler.Handle(new CreateCategoryCommand() { Name = "Test"}, CancellationToken.None);
+            await handler.Handle(new CreateCategoryCommand() { Name = "Test" }, CancellationToken.None);
 
             var allCategories = await _mockCategoryRepository.Object.ListAllAsync();
 

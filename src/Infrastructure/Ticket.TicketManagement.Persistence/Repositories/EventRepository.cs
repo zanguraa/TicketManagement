@@ -19,7 +19,7 @@ namespace Ticket.TicketManagement.Persistence.Repositories
         public async Task<Event> AddAsync(Event @event)
         {
             await _dbContext.Events.AddAsync(@event);
-            await       _dbContext.SaveChangesAsync();
+            await _dbContext.SaveChangesAsync();
             //await _dbContext.SaveChangesAsync();
             return @event;
         }

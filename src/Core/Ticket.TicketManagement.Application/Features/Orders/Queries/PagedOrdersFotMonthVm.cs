@@ -1,6 +1,4 @@
-﻿using MediatR;
-
-namespace Ticket.TicketManagement.Application.Features.Orders.Queries
+﻿namespace Ticket.TicketManagement.Application.Features.Orders.Queries
 {
     public class PagedOrdersFotMonthVm
     {

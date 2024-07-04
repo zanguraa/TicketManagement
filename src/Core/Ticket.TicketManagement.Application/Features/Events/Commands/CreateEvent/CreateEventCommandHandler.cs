@@ -17,7 +17,7 @@ namespace Ticket.TicketManagement.Application.Features.Events.Commands.CreateEve
         private readonly IEmailService _emailService;
         private readonly ILogger<CreateEventCommandHandler> _logger;
 
-        
+
 
         public async Task<Guid> Handle(CreateEventCommand request, CancellationToken cancellationToken)
         {
@@ -43,9 +43,9 @@ namespace Ticket.TicketManagement.Application.Features.Events.Commands.CreateEve
             {
                 _logger.LogError($"Mailing about event {@event.EventId} failed due to an error with the mail service: {ex.InnerException}");
             }
-            
+
             return @event.EventId;
         }
     }
-    
+
 }

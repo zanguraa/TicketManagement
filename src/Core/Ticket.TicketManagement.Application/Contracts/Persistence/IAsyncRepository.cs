@@ -1,6 +1,4 @@
-﻿using Ticket.TicketManagement.Domain.Entities;
-
-namespace Ticket.TicketManagement.Application.Contracts.Persistence
+﻿namespace Ticket.TicketManagement.Application.Contracts.Persistence
 {
     public interface IAsyncRepository<T> where T : class
     {

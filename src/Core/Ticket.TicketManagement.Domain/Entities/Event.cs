@@ -1,8 +1,6 @@
-﻿using Ticket.TicketManagement.Domain.Common;
-
-namespace Ticket.TicketManagement.Domain.Entities
+﻿namespace Ticket.TicketManagement.Domain.Entities
 {
-    public class Event 
+    public class Event
     {
         public Guid EventId { get; set; }
         public string Name { get; set; } = string.Empty;

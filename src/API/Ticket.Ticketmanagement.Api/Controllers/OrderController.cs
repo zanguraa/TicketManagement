@@ -1,5 +1,4 @@
-﻿using CsvHelper.Configuration.Attributes;
-using MediatR;
+﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Ticket.TicketManagement.Application.Features.Orders.Queries;
 

@@ -1,6 +1,5 @@
-using Ticket.Ticketmanagement.Api;
-
 using Serilog;
+using Ticket.Ticketmanagement.Api;
 
 Log.Logger = new LoggerConfiguration()
     .WriteTo.Console()

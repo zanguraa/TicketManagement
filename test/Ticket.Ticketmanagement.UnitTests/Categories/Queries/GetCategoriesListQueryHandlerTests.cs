@@ -4,7 +4,6 @@ using Shouldly;
 using Ticket.Ticketmanagement.UnitTests.Mocks;
 using Ticket.TicketManagement.Application.Contracts.Persistence;
 using Ticket.TicketManagement.Application.Features.Categories.Queries.GetCategoriesList;
-using Ticket.TicketManagement.Application.Features.Categories.Queries.GetCategoriesListWithEvent;
 using Ticket.TicketManagement.Application.Profiles;
 using Ticket.TicketManagement.Domain.Entities;
 

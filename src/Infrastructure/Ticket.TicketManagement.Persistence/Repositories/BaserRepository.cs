@@ -1,6 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Ticket.TicketManagement.Application.Contracts.Persistence;
-using Ticket.TicketManagement.Domain.Entities;
 
 namespace Ticket.TicketManagement.Persistence.Repositories
 {

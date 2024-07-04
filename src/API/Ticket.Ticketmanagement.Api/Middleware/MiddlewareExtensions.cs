@@ -1,6 +1,4 @@
-﻿using System.Runtime.CompilerServices;
-
-namespace Ticket.Ticketmanagement.Api.Middleware
+﻿namespace Ticket.Ticketmanagement.Api.Middleware
 {
     public static class MiddlewareExtensions
     {

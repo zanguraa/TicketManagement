@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Ticket.Ticketmanagement.Api.Utility
+﻿namespace Ticket.Ticketmanagement.Api.Utility
 {
     [AttributeUsage(AttributeTargets.Method)]
     public class FileResultContentTypeAttribute : Attribute

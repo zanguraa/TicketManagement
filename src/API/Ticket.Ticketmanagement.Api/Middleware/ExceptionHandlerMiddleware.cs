@@ -1,5 +1,4 @@
-﻿using FluentValidation;
-using System.Net;
+﻿using System.Net;
 using System.Text.Json;
 using Ticket.TicketManagement.Application.Exceptions;
 using ValidationException = Ticket.TicketManagement.Application.Exceptions.ValidationException;
