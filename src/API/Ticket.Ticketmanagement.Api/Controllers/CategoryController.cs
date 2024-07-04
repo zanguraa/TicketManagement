@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Ticket.TicketManagement.Application.Features.Categories.Commands;
 using Ticket.TicketManagement.Application.Features.Categories.Commands.CreateCategory;
@@ -20,6 +21,7 @@ namespace Ticket.Ticketmanagement.Api.Controllers
 
         [HttpGet("all", Name = "GetAllCategories")]
         [ProducesResponseType(StatusCodes.Status200OK)]
+        [Authorize]
 
         public async Task<ActionResult<List<CategoryListVm>>> GetAllCategories()
 

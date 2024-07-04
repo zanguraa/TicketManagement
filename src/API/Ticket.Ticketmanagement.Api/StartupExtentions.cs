@@ -1,4 +1,8 @@
-﻿using Ticket.Ticketmanagement.Api.Middleware;
+﻿using Identity;
+using Identity.Models;
+using Microsoft.AspNetCore.Identity;
+using System.Security.Claims;
+using Ticket.Ticketmanagement.Api.Middleware;
 using Ticket.Ticketmanagement.Api.Services;
 using Ticket.TicketManagement.Application;
 using Ticket.TicketManagement.Application.Contracts;
@@ -14,6 +18,7 @@ namespace Ticket.Ticketmanagement.Api
             builder.Services.AddApplicationServices();
             builder.Services.AddInfrastructureServices(builder.Configuration);
             builder.Services.AddPersistenceServices(builder.Configuration);
+            builder.Services.AddIdentityServices(builder.Configuration);
 
             builder.Services.AddScoped<ILoggedInUserService, LoggedInUserService>();
             builder.Services.AddHttpContextAccessor();
@@ -30,14 +35,24 @@ namespace Ticket.Ticketmanagement.Api
                 .AllowAnyHeader()
                 .AllowCredentials()));
 
+            builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
 
-            return builder.Build();
+            return builder.Build();  
 
         }
 
         public static WebApplication ConfigurePipeline(this WebApplication app)
         {
+            app.MapIdentityApi<ApplicationUser>();
+
+            app.MapPost("/Logout", async (ClaimsPrincipal user,
+                SignInManager<ApplicationUser> signInManager) =>
+            {
+                await signInManager.SignOutAsync();
+                return TypedResults.Ok();
+            });
+
             app.UseCors("open");
             if (app.Environment.IsDevelopment())
             {
